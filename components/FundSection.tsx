@@ -2,7 +2,7 @@ import React from "react";
 
 const FundSection = () => {
   return (
-    <div className=" flex flex-col justify-center items-center mb-[140px] mt-[100px]">
+    <div className=" flex flex-col justify-center items-center mb-[170px] mt-[150px]">
       <div className=" text-[50px] font-extrabold mb-[30px]">
         <p>FundMe Ethereum</p>
       </div>
