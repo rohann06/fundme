@@ -3,7 +3,7 @@ import React from "react";
 const AllFunders = () => {
   return (
     <div className=" mx-5">
-      <div className=" flex items-center justify-between rounded-[10px]  border-4 py-2 border-slate-400">
+      <div className=" flex items-center justify-between rounded-[10px]  border-[3px] py-[12px] border-slate-300">
         <div className=" flex items-center gap-x-[7px] text-[17px] font-bold mx-5">
           <p className=" text-gray-500">Current Funds:</p>
           <p>0 ETH</p>
