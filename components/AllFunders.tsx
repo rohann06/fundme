@@ -6,13 +6,13 @@ const AllFunders = () => {
     address.length - 10
   )}`;
   return (
-    <div className=" mx-5">
-      <div className="flex md:flex-row flex-col items-start md:items-center justify-between rounded-[10px]  border-[3px] py-[12px] border-slate-300 gap-y-3 px-5">
-        <div className=" flex md:flex-row flex-col items-start md:items-center gap-x-[7px] text-[17px] font-bold mx-5">
+    <div className=" mx-3 md:mx-5">
+      <div className="flex md:flex-row flex-col items-start md:items-center justify-between rounded-[10px]  border-[3px] py-[12px] border-slate-300 gap-y-3 px-0 md:px-5">
+        <div className=" flex md:flex-row flex-col items-start md:items-center gap-x-[7px] text-[15px] md:text-[17px] font-bold mx-3 md:mx-5">
           <p className=" text-gray-500">Current Funds:</p>
           <p>0 ETH</p>
         </div>
-        <div className=" flex md:flex-row flex-col items-start md:items-center gap-x-[7px] text-[17px] font-bold mx-5">
+        <div className=" flex md:flex-row flex-col items-start md:items-center gap-x-[7px] text-[15px] md:text-[17px] font-bold mx-3 md:mx-5">
           <p className=" text-gray-500">Contract Add:</p>
           <a
             href="https://etherscan.io/address/0x128733E87074F39D2b77E5e1101C2047CC553cb0"
@@ -22,7 +22,7 @@ const AllFunders = () => {
             {shortenedAddress}
           </a>
         </div>
-        <div className=" flex md:flex-row flex-col items-start md:items-center gap-x-[7px] text-[17px] font-bold mx-5">
+        <div className=" flex md:flex-row flex-col items-start md:items-center gap-x-[7px] text-[15px] md:text-[17px] font-bold mx-3 md:mx-5">
           <p className=" text-gray-500">Owner Add:</p>
           <a
             href="https://etherscan.io/address/0x128733E87074F39D2b77E5e1101C2047CC553cb0"
