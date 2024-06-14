@@ -39,15 +39,15 @@ const Table = ({ address }: { address: String }) => {
           <a
             href="https://etherscan.io/address/0x128733E87074F39D2b77E5e1101C2047CC553cb0"
             target="_blank"
-            className=" underline text-indigo-500"
+            className=" underline text-indigo-500 font-mono font-medium"
           >
             {address}
           </a>
-          <p className=" font-semibold">
-            {" "}
-            <span className=" font-semibold text-zinc-500">Funded:</span> 1 ETH
+          <p className=" font-semibold text-zinc-500">
+            Funded: {" "}
+            <span className=" font-semibold text-black font-mono">1 ETH</span>
           </p>
-          <p className=" text-sm">14 May 2024</p>
+          <p className=" text-sm font-mono">14 May 2024</p>
         </div>
       </div>
     </>
