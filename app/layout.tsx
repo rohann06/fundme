@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Silkscreen } from "next/font/google";
 import "./globals.css";
+import LayoutProvider from "@/providers/LayoutProvider";
 
-const silkscreen = Silkscreen({ weight: ["400", "700"],subsets: ["latin"]});
+const silkscreen = Silkscreen({ weight: ["400", "700"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "FundMe",
@@ -16,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={silkscreen.className}>{children}</body>
+      <body className={silkscreen.className}>
+        <LayoutProvider>{children}</LayoutProvider>
+      </body>
     </html>
   );
 }

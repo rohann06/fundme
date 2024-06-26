@@ -21,7 +21,7 @@ const Table = ({ address }: { address: String }) => {
                 <a
                   href="https://etherscan.io/address/0x128733E87074F39D2b77E5e1101C2047CC553cb0"
                   target="_blank"
-                  className=" underline text-indigo-500"
+                  className=" underline text-indigo-500 font-mono"
                 >
                   {address}
                 </a>

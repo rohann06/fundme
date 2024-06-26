@@ -1,4 +1,5 @@
 "use client";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import React from "react";
 import { FaEthereum } from "react-icons/fa";
 
@@ -9,9 +10,20 @@ const Navbar = () => {
         FundFusion{" "}
         <FaEthereum className="bg-[#151515] text-indigo-400 text-[21px] md:text-[26px]" />
       </div>
-      <div className=" rounded-[10px]">
+      <div className=" rounded-[10px] ">
         <button className=" text-sm md:text-base py-[3px] md:py-[9px] px-3 md:px-5 font-semibold rounded-[10px] hover:scale-105 ">
-          Connect
+          {/* <ConnectButton
+          chainStatus="icon"
+          accountStatus={{
+            smallScreen: "avatar",
+            largeScreen: "full",
+          }}
+          showBalance={{
+            smallScreen: false,
+            largeScreen: true,
+          }}
+        /> */}
+        Connect 
         </button>
       </div>
     </div>
