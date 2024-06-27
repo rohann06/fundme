@@ -10,9 +10,9 @@ const Navbar = () => {
         FundFusion{" "}
         <FaEthereum className="bg-[#151515] text-indigo-400 text-[21px] md:text-[26px]" />
       </div>
-      <div className=" rounded-[10px] ">
+      {/* <div className=" rounded-[10px] ">
         <button className=" text-sm md:text-base py-[3px] md:py-[9px] px-3 md:px-5 font-semibold rounded-[10px] hover:scale-105 ">
-          {/* <ConnectButton
+          <ConnectButton
           chainStatus="icon"
           accountStatus={{
             smallScreen: "avatar",
@@ -22,10 +22,21 @@ const Navbar = () => {
             smallScreen: false,
             largeScreen: true,
           }}
-        /> */}
-        Connect 
+        />
         </button>
-      </div>
+      </div> */}
+      <ConnectButton
+        label="Connect"
+        chainStatus="icon"
+        accountStatus={{
+          smallScreen: "avatar",
+          largeScreen: "full",
+        }}
+        showBalance={{
+          smallScreen: false,
+          largeScreen: true,
+        }}
+      />
     </div>
   );
 };
