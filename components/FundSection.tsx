@@ -2,19 +2,17 @@
 import React, { useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { parseEther } from "viem";
-import { useWriteContract } from "wagmi";
+import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { abi } from "../utils/FundMeAbi";
 import { contractAddress } from "../utils/constant";
 const FundSection = () => {
   const [fundAmount, setFundAmount] = useState("");
-  const {
-    data: hash,
-    isPending,
-    isSuccess,
-    isError,
-    writeContract,
-  } = useWriteContract();
+  const { data: hash, writeContract } = useWriteContract();
 
+  const { isLoading: isConfirming, isSuccess: isConfirmed } =
+    useWaitForTransactionReceipt({
+      hash,
+    });
   const sendFund = async (e: React.FormEvent) => {
     e.preventDefault();
     writeContract({
@@ -23,9 +21,9 @@ const FundSection = () => {
       functionName: "fund",
       value: parseEther(fundAmount),
     });
-    {
-      isSuccess && console.log("Data", hash);
-    }
+
+    setFundAmount("");
+    console.log("Fund", fundAmount);
   };
 
   return (
@@ -46,16 +44,16 @@ const FundSection = () => {
               onChange={(e) => setFundAmount(e.target.value)}
               required
               name="fund"
-              placeholder="Minimum Fund $5"
+              placeholder="Minimum Fund $5 "
               type="text"
               className="text-sm md:text-base w-[250px] md:w-[580px] bg-[#dbd9d9] px-4 md:px-6 py-[10px] md:py-[15px] rounded-full border-[1px] border-black font-semibold font-mono"
             />
           </div>
           <button
-            disabled={isPending}
+            disabled={isConfirming}
             className="rounded-full text-base md:text-lg font-medium bg-indigo-400 hover:bg-indigo-500 py-[10px] md:py-[15px] px-5 md:px-7"
           >
-            {isPending ? (
+            {isConfirming ? (
               <AiOutlineLoading3Quarters className="animate-spin bg-transparent" />
             ) : (
               "Fund"

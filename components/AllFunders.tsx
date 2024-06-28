@@ -17,7 +17,7 @@ const AllFunders = () => {
         <div className=" flex md:flex-row flex-col items-start md:items-center gap-x-[7px] text-[15px] md:text-[17px] font-bold mx-3 md:mx-5">
           <p className=" text-gray-400">Contract Add:</p>
           <a
-            href="https://sepolia.etherscan.io/address/0x9b7438C3bE458596a73847b131dC8280e0557262"
+            href="https://sepolia.etherscan.io/address/0xAd9e408f0bb6da470617AC0B5bc8d8798A74d757"
             className=" underline font-semibold hover:text-indigo-400 font-mono"
             target="_blank"
           >
