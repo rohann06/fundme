@@ -2,7 +2,7 @@
 import React from "react";
 import { useAccount, useReadContract } from "wagmi";
 import { abi } from "../utils/FundMeAbi";
-import Funders from "./(allFundersDetails)/funders";
+import Funders from "./Funders";
 import { contractAddress } from "../utils/constant";
 
 const Table = () => {
