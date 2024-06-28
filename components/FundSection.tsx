@@ -1,6 +1,33 @@
-import React from "react";
-
+"use client";
+import React, { useState } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { parseEther } from "viem";
+import { useWriteContract } from "wagmi";
+import { abi } from "../utils/FundMeAbi";
+import { contractAddress } from "../utils/constant";
 const FundSection = () => {
+  const [fundAmount, setFundAmount] = useState("");
+  const {
+    data: hash,
+    isPending,
+    isSuccess,
+    isError,
+    writeContract,
+  } = useWriteContract();
+
+  const sendFund = async (e: React.FormEvent) => {
+    e.preventDefault();
+    writeContract({
+      address: contractAddress,
+      abi,
+      functionName: "fund",
+      value: parseEther(fundAmount),
+    });
+    {
+      isSuccess && console.log("Data", hash);
+    }
+  };
+
   return (
     <div className="relative h-[400px] mb-5 md:mb-0 md:h-[500px] w-screen">
       <div className="bg-[url('/eth.webp')] h-[400px] md:h-[500px] w-screen absolute top-0 left-0 z-0"></div>
@@ -9,18 +36,33 @@ const FundSection = () => {
         <div className="text-[27px] md:text-[53px] font-extrabold mb-[10px] md:mb-[30px] bg-transparent">
           <p className="bg-transparent">FundMe Ethereum</p>
         </div>
-        <form className="flex items-center gap-x-2 bg-transparent">
+        <form
+          onSubmit={sendFund}
+          className="flex items-center gap-x-2 bg-transparent"
+        >
           <div className="bg-transparent">
             <input
-              placeholder="Add ETH amount..."
+              value={fundAmount}
+              onChange={(e) => setFundAmount(e.target.value)}
+              required
+              name="fund"
+              placeholder="Minimum Fund $5"
               type="text"
               className="text-sm md:text-base w-[250px] md:w-[580px] bg-[#dbd9d9] px-4 md:px-6 py-[10px] md:py-[15px] rounded-full border-[1px] border-black font-semibold font-mono"
             />
           </div>
-          <button className="rounded-full text-base md:text-lg font-medium bg-indigo-400 hover:bg-indigo-500 py-[10px] md:py-[15px] px-5 md:px-7">
-            Fund
+          <button
+            disabled={isPending}
+            className="rounded-full text-base md:text-lg font-medium bg-indigo-400 hover:bg-indigo-500 py-[10px] md:py-[15px] px-5 md:px-7"
+          >
+            {isPending ? (
+              <AiOutlineLoading3Quarters className="animate-spin bg-transparent" />
+            ) : (
+              "Fund"
+            )}
           </button>
         </form>
+        <p></p>
       </div>
     </div>
   );

@@ -1,22 +1,27 @@
 import React from "react";
 import Table from "./Table";
-
+import { contractAddress } from "../utils/constant";
 const AllFunders = () => {
+  const contractAdd = contractAddress;
   const address = "0x128733E87074F39D2b77E5e1101C2047CC553cb0";
   const shortenedAddress = `${address.substring(0, 10)}....${address.substring(
     address.length - 10
   )}`;
+  const shortcontractAdd = `${contractAdd.substring(
+    0,
+    10
+  )}....${contractAdd.substring(contractAdd.length - 10)}`;
   return (
     <div className=" md:mt-0 mx-2 md:mx-2">
       <div className="flex md:flex-row flex-col items-start md:items-center justify-between rounded-[10px]  border-[3px] py-[12px] border-zinc-300 gap-y-3 px-0 md:px-5">
         <div className=" flex md:flex-row flex-col items-start md:items-center gap-x-[7px] text-[15px] md:text-[17px] font-bold mx-3 md:mx-5">
           <p className=" text-gray-400">Contract Add:</p>
           <a
-            href="https://etherscan.io/address/0x128733E87074F39D2b77E5e1101C2047CC553cb0"
+            href="https://sepolia.etherscan.io/address/0x9b7438C3bE458596a73847b131dC8280e0557262"
             className=" underline font-semibold hover:text-indigo-400 font-mono"
             target="_blank"
           >
-            {shortenedAddress}
+            {shortcontractAdd}
           </a>
         </div>
         <div className=" flex md:flex-row flex-col items-start md:items-center gap-x-[7px] text-[15px] md:text-[17px] font-bold mx-3 md:mx-5">
@@ -26,7 +31,7 @@ const AllFunders = () => {
         <div className=" flex md:flex-row flex-col items-start md:items-center gap-x-[7px] text-[15px] md:text-[17px] font-bold mx-3 md:mx-5">
           <p className=" text-gray-400">Owner Add:</p>
           <a
-            href="https://etherscan.io/address/0x128733E87074F39D2b77E5e1101C2047CC553cb0"
+            href="https://sepolia.etherscan.io/address/0x128733E87074F39D2b77E5e1101C2047CC553cb0"
             target="_blank"
             className=" underline font-semibold hover:text-indigo-400 font-mono"
           >
@@ -34,7 +39,7 @@ const AllFunders = () => {
           </a>
         </div>
       </div>
-      <Table address={shortenedAddress} />
+      <Table />
     </div>
   );
 };
