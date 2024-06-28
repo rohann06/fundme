@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { parseEther } from "viem";
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { abi } from "../utils/FundMeAbi";
 import { contractAddress } from "../utils/constant";
+import { useFundStore } from "@/lib/store/fundStore";
 const FundSection = () => {
   const [fundAmount, setFundAmount] = useState("");
   const { data: hash, writeContract } = useWriteContract();
@@ -13,23 +14,35 @@ const FundSection = () => {
     useWaitForTransactionReceipt({
       hash,
     });
+
   const sendFund = async (e: React.FormEvent) => {
     e.preventDefault();
-    writeContract({
-      address: contractAddress,
-      abi,
-      functionName: "fund",
-      value: parseEther(fundAmount),
-    });
+
+    try {
+      writeContract({
+        address: contractAddress,
+        abi,
+        functionName: "fund",
+        value: parseEther(fundAmount),
+      });
+    } catch (e) {
+      console.log("Eorror", e);
+    }
 
     setFundAmount("");
-    console.log("Fund", fundAmount);
   };
 
+  const { setIsFunded } = useFundStore();
+  useEffect(() => {
+    if (isConfirmed) {
+      setIsFunded(true);
+    }
+  }, [isConfirmed]);
+
   return (
-    <div className="relative h-[400px] mb-5 md:mb-0 md:h-[500px] w-screen">
-      <div className="bg-[url('/eth.webp')] h-[400px] md:h-[500px] w-screen absolute top-0 left-0 z-0"></div>
-      <div className="bg-white absolute h-[400px] md:h-[500px] w-screen opacity-70 z-10 top-0 left-0"></div>
+    <div className="relative h-[400px] mb-5 md:mb-0 md:h-[500px] w-full overflow-hidden">
+      <div className="bg-[url('/eth.webp')] h-[400px] md:h-[500px] w-full absolute top-0 left-0 z-0"></div>
+      <div className="bg-white absolute h-[400px] md:h-[500px] w-full opacity-70 z-10 top-0 left-0"></div>
       <div className="bg-transparent flex flex-col justify-center items-center absolute top-0 left-0 h-[400px] md:h-full w-full z-20">
         <div className="text-[27px] md:text-[53px] font-extrabold mb-[10px] md:mb-[30px] bg-transparent">
           <p className="bg-transparent">FundMe Ethereum</p>

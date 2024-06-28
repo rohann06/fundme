@@ -1,4 +1,4 @@
-@import "@rainbow-me/rainbowkit/styles.css";
+@import '@rainbow-me/rainbowkit/styles.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,8 +6,9 @@
 * {
   margin: 0%;
   padding: 0%;
+  
 }
 
-body {
-  background-color: #eeeeee;
+body{
+  background-color: #EEEEEE;
 }

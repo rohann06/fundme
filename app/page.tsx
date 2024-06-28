@@ -1,4 +1,5 @@
-import AllFunders from "@/components/AllFunders";
+
+import AllFunders from "@/components/(fundreSection)/AllFunders";
 import FundSection from "@/components/FundSection";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
