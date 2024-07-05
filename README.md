@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FundMe Ethereum 💰
+#### Fund Me is a decentralized app built to explore new technologies like Foundry for testing and deploying smart contracts, Wagmi/Viem for frontend development, Rainbow Kit for wallet connection, and Zustand for state management. The app allows users to connect Ethereum wallets and fund the contract which only the owner can withdraw.
+#### This project aimed to learn how to deploy and write the tests in foundry and also how to read and write from the smart contract using wagmi/viem
 
-## Getting Started
+## Live application
+[![Already deployed version](https://vercel.com/button)](https://fundme06.vercel.app/)
 
-First, run the development server:
+## Technologies used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I have used some of the most popular libraries and frameworks in web3.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Solidity**
+- **NextJs**
+- **TailwindCSS**
+- **Foundry**
+- **wagmi/viem**
+- **Rainbow kit**
+- **Tanstack query**
+- **zustand**
+  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Functionality
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### This is a single-page dapp that is deployed in the sepolia test net, where funders can connect their maatamask or any other wallet with it and can fund. The list of funders and how much they funded gonna displayed in the all funders section.
+![image](https://github.com/rohan-ahire06/fundme/assets/75326769/a6b3908e-af81-4df8-bd2b-678fda0de798)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
