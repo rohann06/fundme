@@ -16,50 +16,38 @@ const FundersTable = () => {
   });
   console.log("Fetched-DATA", fundresaddresses);
 
-  const {isFunded, setIsFunded} = useFundStore()
+  const { isFunded, setIsFunded } = useFundStore();
 
   useEffect(() => {
-    if(isFunded){
-      refetch()
-      setIsFunded(false)
+    if (isFunded) {
+      console.log("isFunded state changed, refetching...");
+      refetch();
+      setIsFunded(false);
     }
-  },[isFunded])
+  }, [isFunded, refetch, setIsFunded]);
 
-  return (  
+  return (
     <>
-      <div className="  hidden md:block ">
-        <table className="w-full ">
+      <div className="hidden md:block">
+        <table className="w-full">
           <thead className="p-3 text-white text-[19px]">
             <tr>
-              <th className=" rounded-tl-[10px] py-3 bg-[#151515]">No.</th>
-              <th className=" py-3 bg-[#151515]">Funders</th>
-              <th className=" py-3 bg-[#151515]">Fund</th>
-              <th className=" rounded-tr-[10px] py-3 bg-[#151515]">Date</th>
+              <th className="rounded-tl-[10px] py-3 bg-[#151515]">No.</th>
+              <th className="py-3 bg-[#151515]">Funders</th>
+              <th className="py-3 bg-[#151515]">Fund</th>
+              <th className="rounded-tr-[10px] py-3 bg-[#151515]">Date</th>
             </tr>
           </thead>
-
           <tbody className="text-center p-2 font-semibold text-[17px] border-2 border-zinc-300">
-            {fundresaddresses?.map((fundreaddress, i) => {
-              return (
-                <FundersTableBody
-                  key={fundreaddress}
-                  fundreaddress={fundreaddress}
-                  i={i}
-                />
-              );
-            })}
+            {fundresaddresses?.map((fundreaddress, i) => (
+              <FundersTableBody key={fundreaddress} fundreaddress={fundreaddress} i={i} />
+            ))}
           </tbody>
         </table>
       </div>
-
-      {fundresaddresses?.map((fundreaddress, i) => {
-        return (
-          <FundersTableMobile
-            key={fundreaddress}
-            fundreaddress={fundreaddress}
-          />
-        );
-      })}
+      {fundresaddresses?.map((fundreaddress, i) => (
+        <FundersTableMobile key={fundreaddress} fundreaddress={fundreaddress} />
+      ))}
     </>
   );
 };

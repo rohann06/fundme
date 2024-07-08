@@ -6,10 +6,10 @@ import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { abi } from "../utils/FundMeAbi";
 import { contractAddress } from "../utils/constant";
 import { useFundStore } from "@/lib/store/fundStore";
+
 const FundSection = () => {
   const [fundAmount, setFundAmount] = useState("");
   const { data: hash, writeContract } = useWriteContract();
-
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
       hash,
@@ -26,7 +26,7 @@ const FundSection = () => {
         value: parseEther(fundAmount),
       });
     } catch (e) {
-      console.log("Eorror", e);
+      console.log("Error", e);
     }
 
     setFundAmount("");
@@ -35,9 +35,10 @@ const FundSection = () => {
   const { setIsFunded } = useFundStore();
   useEffect(() => {
     if (isConfirmed) {
+      console.log("Transaction confirmed");
       setIsFunded(true);
     }
-  }, [isConfirmed]);
+  }, [isConfirmed, setIsFunded]);
 
   return (
     <div className="relative h-[400px] mb-5 md:mb-0 md:h-[500px] w-full overflow-hidden">

@@ -8,6 +8,9 @@ type Actions = {
 };
 
 export const useFundStore = create<State & Actions>((set) => ({
-  isFunded:false,
-  setIsFunded:value => set({isFunded:value})
+  isFunded: false,
+  setIsFunded: (value) => {
+    console.log("Setting isFunded to", value);
+    set({ isFunded: value });
+  },
 }));
